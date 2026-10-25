@@ -6,6 +6,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  checks: write
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -13,12 +17,11 @@ concurrency:
 jobs:
   domain-conformance:
     name: Pure-Kotlin domain conformance
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
         with: { distribution: temurin, java-version: '17' }
-      - uses: android-actions/setup-android@v3
       - name: Install SDK platform (needed while Gradle configures Android modules)
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0" >/dev/null
       - uses: gradle/actions/setup-gradle@v4
@@ -37,16 +40,32 @@ jobs:
 
   android:
     name: Android build, lint & unit tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
         with: { distribution: temurin, java-version: '17' }
-      - uses: android-actions/setup-android@v3
       - name: Install SDK platforms
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0" >/dev/null
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '8.9' }
+      - name: Assemble debug APK
+        run: |
+          set -o pipefail
+          gradle :app:assembleDebug --no-daemon --console=plain 2>&1 | tee build-diagnostics.log
+      - name: Publish build diagnostics
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const text = fs.existsSync("build-diagnostics.log") ? fs.readFileSync("build-diagnostics.log", "utf8").slice(-60000) : "Build failed before compilation.";
+            await github.rest.checks.create({ ...context.repo, name: "Build diagnostics", head_sha: context.sha, status: "completed", conclusion: "failure", output: {title: "Android build output", summary: "```text\n" + text + "\n```"} });
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sentinelnet-debug
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
       - name: Static analysis (detekt ratchet baseline — reports, does not gate yet)
         continue-on-error: true
         run: gradle detekt --no-daemon --continue
@@ -54,21 +73,15 @@ jobs:
         run: gradle :app:testDebugUnitTest :engine:wifi:testDebugUnitTest :engine:scanner:testDebugUnitTest --no-daemon
       - name: Android lint
         run: gradle :app:lintDebug --no-daemon
-      - name: Assemble debug APK
-        run: gradle :app:assembleDebug --no-daemon
-      - uses: actions/upload-artifact@v4
-        with:
-          name: sentinelnet-debug
-          path: app/build/outputs/apk/debug/*.apk
 
   native:
     name: Rust packet parser tests + clippy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: native/rust/sentinel-parser
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with: { components: clippy, rustfmt }
       - run: cargo fmt -- --check
@@ -78,9 +91,9 @@ jobs:
 
   structure:
     name: Spec / safety invariants
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - name: Verify consent gating, docs and sample reports
