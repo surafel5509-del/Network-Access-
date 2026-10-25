@@ -1,0 +1,68 @@
+{
+  "schema": "sentinelnet.report/1",
+  "reportType": "wifi-scan",
+  "generatedAt": "2023-11-14T22:13:20Z",
+  "count": 4,
+  "networks": [
+    {
+      "ssid": "SentinelLab-5G",
+      "bssid": "00:1A:2B:3C:4D:5E",
+      "rssiDbm": -42,
+      "frequencyMhz": 5180,
+      "channel": 36,
+      "band": "5 GHz",
+      "channelWidthMhz": 80,
+      "security": "WPA3",
+      "standard": "WIFI_6",
+      "wps": false,
+      "hidden": false,
+      "vendor": "Cisco Systems",
+      "maxPhyRateMbps": 0
+    },
+    {
+      "ssid": "SentinelLab-IoT",
+      "bssid": "C0:25:E9:11:22:33",
+      "rssiDbm": -61,
+      "frequencyMhz": 2437,
+      "channel": 6,
+      "band": "2.4 GHz",
+      "channelWidthMhz": 20,
+      "security": "WPA2",
+      "standard": "WIFI_4",
+      "wps": true,
+      "hidden": false,
+      "vendor": "TP-Link",
+      "maxPhyRateMbps": 0
+    },
+    {
+      "ssid": "Cafe Free WiFi",
+      "bssid": "02:11:22:33:44:55",
+      "rssiDbm": -55,
+      "frequencyMhz": 2412,
+      "channel": 1,
+      "band": "2.4 GHz",
+      "channelWidthMhz": 20,
+      "security": "OPEN",
+      "standard": "UNKNOWN",
+      "wps": false,
+      "hidden": false,
+      "vendor": null,
+      "maxPhyRateMbps": 0
+    },
+    {
+      "ssid": "Legacy-WEP",
+      "bssid": "00:1B:44:66:77:88",
+      "rssiDbm": -78,
+      "frequencyMhz": 2462,
+      "channel": 11,
+      "band": "2.4 GHz",
+      "channelWidthMhz": 20,
+      "security": "WEP",
+      "standard": "UNKNOWN",
+      "wps": false,
+      "hidden": false,
+      "vendor": null,
+      "maxPhyRateMbps": 0
+    }
+  ]
+}

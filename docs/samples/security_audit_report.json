@@ -1,0 +1,183 @@
+{
+  "document": {
+    "schema": "sentinelnet.report/1",
+    "reportType": "security-audit",
+    "generatedAt": "2023-11-14T22:13:20Z",
+    "score": {
+      "overall": 78,
+      "grade": "C",
+      "inputFingerprint": "76d633da511dea60",
+      "categories": [
+        {
+          "category": "Wi-Fi security",
+          "rawScore": 40,
+          "weight": 0.2,
+          "findingCount": 4
+        },
+        {
+          "category": "Network exposure",
+          "rawScore": 50,
+          "weight": 0.2,
+          "findingCount": 4
+        },
+        {
+          "category": "Device hardening",
+          "rawScore": 100,
+          "weight": 0.2,
+          "findingCount": 0
+        },
+        {
+          "category": "App & permission hygiene",
+          "rawScore": 100,
+          "weight": 0.15,
+          "findingCount": 0
+        },
+        {
+          "category": "Privacy & tracking",
+          "rawScore": 100,
+          "weight": 0.15,
+          "findingCount": 0
+        },
+        {
+          "category": "Cryptography & credentials",
+          "rawScore": 100,
+          "weight": 0.1,
+          "findingCount": 0
+        }
+      ]
+    },
+    "findings": [
+      {
+        "id": "port.192.168.1.20.23",
+        "title": "Telnet (23) open on 192.168.1.20",
+        "detail": "Port 23/tcp is reachable. Unauthenticated cleartext shell. Disable immediately.",
+        "severity": "CRITICAL",
+        "category": "NETWORK",
+        "remediation": "Unauthenticated cleartext shell. Disable immediately.",
+        "referenceUrl": null,
+        "evidence": {
+          "port": "23",
+          "protocol": "tcp",
+          "banner": "BusyBox telnetd",
+          "target": "192.168.1.20"
+        }
+      },
+      {
+        "id": "port.192.168.1.20.445",
+        "title": "SMB (445) open on 192.168.1.20",
+        "detail": "Port 445/tcp is reachable. SMB on a network perimeter is a prime ransomware vector.",
+        "severity": "CRITICAL",
+        "category": "NETWORK",
+        "remediation": "SMB on a network perimeter is a prime ransomware vector.",
+        "referenceUrl": null,
+        "evidence": {
+          "port": "445",
+          "protocol": "tcp",
+          "banner": "Samba",
+          "target": "192.168.1.20"
+        }
+      },
+      {
+        "id": "wifi.open.02:11:22:33:44:55",
+        "title": "Open network: Cafe Free WiFi",
+        "detail": "No encryption. All traffic, DNS queries and session cookies are visible to anyone in range.",
+        "severity": "CRITICAL",
+        "category": "WIFI",
+        "remediation": "Use WPA3-SAE (or WPA2-AES at minimum). Never use an open network for sensitive traffic.",
+        "referenceUrl": null,
+        "evidence": {
+          "ssid": "Cafe Free WiFi",
+          "bssid": "02:11:22:33:44:55",
+          "security": "OPEN"
+        }
+      },
+      {
+        "id": "wifi.wep.00:1B:44:66:77:88",
+        "title": "WEP is broken: Legacy-WEP",
+        "detail": "WEP's RC4 IV can be recovered from a few minutes of traffic; the key falls trivially.",
+        "severity": "CRITICAL",
+        "category": "WIFI",
+        "remediation": "Replace the AP or switch to WPA2-AES/WPA3 immediately. WEP cannot be made safe.",
+        "referenceUrl": null,
+        "evidence": {
+          "ssid": "Legacy-WEP",
+          "bssid": "00:1B:44:66:77:88",
+          "security": "WEP"
+        }
+      },
+      {
+        "id": "wifi.random_bssid.02:11:22:33:44:55",
+        "title": "Open network with a randomized BSSID",
+        "detail": "BSSID 02:11:22:33:44:55 has the locally-administered bit set and offers no encryption.",
+        "severity": "MEDIUM",
+        "category": "WIFI",
+        "remediation": "Treat as untrusted. Check for rogue DHCP/DNS before connecting.",
+        "referenceUrl": null,
+        "evidence": {
+          "bssid": "02:11:22:33:44:55",
+          "ssid": "Cafe Free WiFi"
+        }
+      },
+      {
+        "id": "wifi.wps_flag.C0:25:E9:11:22:33",
+        "title": "WPS advertised: SentinelLab-IoT",
+        "detail": "This AP advertises WPS support even though its primary security is WPA2.",
+        "severity": "MEDIUM",
+        "category": "WIFI",
+        "remediation": "Turn off WPS in the AP configuration.",
+        "referenceUrl": null,
+        "evidence": {
+          "ssid": "SentinelLab-IoT",
+          "bssid": "C0:25:E9:11:22:33",
+          "security": "WPA2"
+        }
+      },
+      {
+        "id": "port.192.168.1.1.443",
+        "title": "HTTPS (443) open on 192.168.1.1",
+        "detail": "Port 443/tcp is reachable. Audit TLS version, cipher suites and certificate validity.",
+        "severity": "INFO",
+        "category": "NETWORK",
+        "remediation": "Audit TLS version, cipher suites and certificate validity.",
+        "referenceUrl": null,
+        "evidence": {
+          "port": "443",
+          "protocol": "tcp",
+          "banner": "nginx",
+          "target": "192.168.1.1"
+        }
+      },
+      {
+        "id": "port.192.168.1.1.80",
+        "title": "HTTP (80) open on 192.168.1.1",
+        "detail": "Port 80/tcp is reachable. Prefer HTTPS with HSTS; check for default admin pages.",
+        "severity": "INFO",
+        "category": "NETWORK",
+        "remediation": "Prefer HTTPS with HSTS; check for default admin pages.",
+        "referenceUrl": null,
+        "evidence": {
+          "port": "80",
+          "protocol": "tcp",
+          "banner": "nginx",
+          "target": "192.168.1.1"
+        }
+      }
+    ],
+    "remediation": [
+      "[CRITICAL] Telnet (23) open on 192.168.1.20 — Unauthenticated cleartext shell. Disable immediately.",
+      "[CRITICAL] SMB (445) open on 192.168.1.20 — SMB on a network perimeter is a prime ransomware vector.",
+      "[CRITICAL] Open network: Cafe Free WiFi — Use WPA3-SAE (or WPA2-AES at minimum). Never use an open network for sensitive traffic.",
+      "[CRITICAL] WEP is broken: Legacy-WEP — Replace the AP or switch to WPA2-AES/WPA3 immediately. WEP cannot be made safe.",
+      "[MEDIUM] Open network with a randomized BSSID — Treat as untrusted. Check for rogue DHCP/DNS before connecting.",
+      "[MEDIUM] WPS advertised: SentinelLab-IoT — Turn off WPS in the AP configuration.",
+      "[INFO] HTTPS (443) open on 192.168.1.1 — Audit TLS version, cipher suites and certificate validity.",
+      "[INFO] HTTP (80) open on 192.168.1.1 — Prefer HTTPS with HSTS; check for default admin pages."
+    ],
+    "inputs": {
+      "wifiNetworks": 4,
+      "devices": 2,
+      "portResults": 5
+    }
+  },
+  "sha256": "c51f4d1b1af76d28daf8f7d5c9e940ac81afa9927d17b2067be12453f87e6848"
+}

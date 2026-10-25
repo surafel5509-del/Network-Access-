@@ -1,0 +1,5 @@
+ssid,bssid,rssi_dbm,channel,band,security,standard,wps,vendor
+SentinelLab-5G,00:1A:2B:3C:4D:5E,-42,36,5 GHz,WPA3,WIFI_6,false,Cisco Systems
+SentinelLab-IoT,C0:25:E9:11:22:33,-61,6,2.4 GHz,WPA2,WIFI_4,true,TP-Link
+Cafe Free WiFi,02:11:22:33:44:55,-55,1,2.4 GHz,OPEN,UNKNOWN,false,
+Legacy-WEP,00:1B:44:66:77:88,-78,11,2.4 GHz,WEP,UNKNOWN,false,

@@ -1,0 +1,19 @@
+{
+  "schema": "sentinelnet.report/1",
+  "reportType": "capture-summary",
+  "generatedAt": "2023-11-14T22:13:20Z",
+  "packetCount": 4,
+  "flows": [
+    {
+      "srcIp": "192.168.1.20",
+      "dstIp": "192.168.1.1",
+      "srcPort": 0,
+      "dstPort": 53,
+      "protocol": 17,
+      "packets": 4,
+      "bytes": 160,
+      "firstSeen": "2023-11-14T22:13:20Z",
+      "lastSeen": "2023-11-14T22:13:20Z"
+    }
+  ]
+}

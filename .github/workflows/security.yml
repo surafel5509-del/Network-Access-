@@ -1,0 +1,26 @@
+name: SAST
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+  schedule:
+    - cron: '17 4 * * 1'
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v4
+      - name: Semgrep (security + Kotlin rules)
+        run: semgrep scan --config p/kotlin --config p/secrets --config .semgrep.yml --error --sarif --output semgrep.sarif || true
+      - uses: actions/upload-artifact@v4
+        with: { name: semgrep-sarif, path: semgrep.sarif }
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4

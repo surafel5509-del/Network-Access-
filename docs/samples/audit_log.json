@@ -1,0 +1,47 @@
+{
+  "schema": "sentinelnet.report/1",
+  "reportType": "audit-log",
+  "count": 4,
+  "events": [
+    {
+      "sequence": 1,
+      "timestamp": "2023-11-14T22:13:20Z",
+      "actor": "local-user",
+      "capability": "wifi.scan",
+      "target": "-",
+      "decision": "OBSERVED",
+      "reason": "passive",
+      "sessionId": "sample-session"
+    },
+    {
+      "sequence": 2,
+      "timestamp": "2023-11-14T22:13:21Z",
+      "actor": "local-user",
+      "capability": "net.portscan",
+      "target": "192.168.1.0/24",
+      "decision": "ALLOWED",
+      "reason": "OWN_NETWORK / LOCAL_PRIVATE",
+      "sessionId": "sample-session"
+    },
+    {
+      "sequence": 3,
+      "timestamp": "2023-11-14T22:13:22Z",
+      "actor": "local-user",
+      "capability": "net.portscan",
+      "target": "8.8.8.8",
+      "decision": "DENIED",
+      "reason": "PUBLIC_TARGET_NOT_ACKNOWLEDGED: Public target needs explicit acknowledgement",
+      "sessionId": "sample-session"
+    },
+    {
+      "sequence": 4,
+      "timestamp": "2023-11-14T22:13:23Z",
+      "actor": "local-user",
+      "capability": "lab.wpa_psk",
+      "target": "local-synthetic",
+      "decision": "ALLOWED",
+      "reason": "LOCAL_LAB / LOCAL_LAB",
+      "sessionId": "sample-session"
+    }
+  ]
+}

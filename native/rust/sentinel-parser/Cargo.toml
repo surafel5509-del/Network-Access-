@@ -1,0 +1,19 @@
+[package]
+name = "sentinel-parser"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "Apache-2.0"
+description = "SentinelNet native packet metadata parser (no payload retention)"
+
+[lib]
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[profile.release]
+opt-level = 3
+lto = true
+panic = "abort"
+
+# Intentionally dependency-free: the native hot path must build offline and be
+# auditable. The Kotlin reference implementation in :core:pure mirrors this grammar.
+[dependencies]

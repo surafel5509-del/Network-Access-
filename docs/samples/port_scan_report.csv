@@ -1,0 +1,6 @@
+target,port,protocol,state,service,version,banner,latency_ms
+192.168.1.1,80,tcp,OPEN,1.18.0,,nginx,4
+192.168.1.1,443,tcp,OPEN,1.18.0,,nginx,5
+192.168.1.1,22,tcp,CLOSED,,,,0
+192.168.1.20,445,tcp,OPEN,4.3.11,,Samba,7
+192.168.1.20,23,tcp,OPEN,,,BusyBox telnetd,6

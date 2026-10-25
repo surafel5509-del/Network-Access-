@@ -1,0 +1,64 @@
+{
+  "schema": "sentinelnet.report/1",
+  "reportType": "port-scan",
+  "generatedAt": "2023-11-14T22:13:20Z",
+  "count": 5,
+  "openPorts": 4,
+  "results": [
+    {
+      "target": "192.168.1.1",
+      "port": 80,
+      "protocol": "tcp",
+      "state": "OPEN",
+      "service": "1.18.0",
+      "version": null,
+      "banner": "nginx",
+      "latencyMs": 4,
+      "tlsSubject": null
+    },
+    {
+      "target": "192.168.1.1",
+      "port": 443,
+      "protocol": "tcp",
+      "state": "OPEN",
+      "service": "1.18.0",
+      "version": null,
+      "banner": "nginx",
+      "latencyMs": 5,
+      "tlsSubject": null
+    },
+    {
+      "target": "192.168.1.1",
+      "port": 22,
+      "protocol": "tcp",
+      "state": "CLOSED",
+      "service": null,
+      "version": null,
+      "banner": null,
+      "latencyMs": 0,
+      "tlsSubject": null
+    },
+    {
+      "target": "192.168.1.20",
+      "port": 445,
+      "protocol": "tcp",
+      "state": "OPEN",
+      "service": "4.3.11",
+      "version": null,
+      "banner": "Samba",
+      "latencyMs": 7,
+      "tlsSubject": null
+    },
+    {
+      "target": "192.168.1.20",
+      "port": 23,
+      "protocol": "tcp",
+      "state": "OPEN",
+      "service": "",
+      "version": null,
+      "banner": "BusyBox telnetd",
+      "latencyMs": 6,
+      "tlsSubject": null
+    }
+  ]
+}

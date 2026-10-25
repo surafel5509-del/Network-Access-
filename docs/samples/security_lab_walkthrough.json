@@ -1,0 +1,15 @@
+{
+  "schema": "sentinelnet.lab/1",
+  "generatedAt": "2023-11-14T22:13:20Z",
+  "lesson": "Why weak WPA2-PSK passphrases are recoverable offline, and why WPA3-SAE fixes it",
+  "syntheticHandshake": true,
+  "ssid": "SentinelLab",
+  "pbkdf2Iterations": 4096,
+  "pmkBytes": 32,
+  "verifiedPmkHex": "e7fa2658455fab8d929e7ee418d2a1e47c6d8b8defaa1b37cdcc0646c785f49a",
+  "verifiedMicHex": "58799593b68f3a444d2ce7f5f2c47dae",
+  "expectedMicHex": "58799593b68f3a444d2ce7f5f2c47dae",
+  "micMatched": true,
+  "note": "Offline verification of a locally generated handshake. No frames were captured from the air and no nearby network was targeted.",
+  "mitigation": "Use WPA3-SAE and a 16+ character random passphrase; disable WPS PIN."
+}

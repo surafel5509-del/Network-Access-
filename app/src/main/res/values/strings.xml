@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SentinelNet</string>
+    <string name="app_tagline">Your pocket security operations centre</string>
+
+    <!-- Onboarding / legal (see docs/LEGAL_NOTICE.md) -->
+    <string name="legal_notice_title">Authorized use only</string>
+    <string name="legal_notice_body">SentinelNet is a defensive network analysis and security auditing tool. Scanning networks or devices without the owner\'s permission may be illegal in your jurisdiction. You must be the owner of the network/device or have written authorisation. Active features are disabled by default in Safe Mode, require a fresh consent dialog, and every action is written to a local audit log.</string>
+    <string name="consent_authorised_only">I confirm I own this network/device or have written permission to test it.</string>
+    <string name="consent_understand_law">I understand that unauthorised scanning may be illegal and I accept full responsibility.</string>
+    <string name="consent_audit_log">I understand every action is recorded in a local, exportable audit log.</string>
+    <string name="consent_no_exploitation">I understand this app performs no exploitation and only reports risks.</string>
+    <string name="accept_continue">Accept the rules and continue</string>
+    <string name="safe_mode">Safe Mode</string>
+    <string name="safe_mode_desc">Disables all invasive features (port scans, capture, MITM proxy, firewall, security lab). Recommended.</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_wifi">Wi-Fi</string>
+    <string name="nav_scanner">Scanner</string>
+    <string name="nav_audit">Audit</string>
+    <string name="nav_lab">Security Lab</string>
+    <string name="nav_reports">Reports</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Dashboard -->
+    <string name="security_score">Security score</string>
+    <string name="quick_actions">Quick actions</string>
+    <string name="recent_alerts">Recent alerts</string>
+    <string name="active_engines">Modules</string>
+    <string name="run_scan">Run Wi-Fi scan</string>
+    <string name="run_audit">Run security audit</string>
+    <string name="export_report">Export report</string>
+
+    <!-- Consent dialog -->
+    <string name="consent_title">Confirm this action</string>
+    <string name="consent_target">Target</string>
+    <string name="consent_scope">Authorisation scope</string>
+    <string name="consent_public_warning">This is a public target. You must record a written justification below.</string>
+    <string name="consent_biometric">Biometric confirmation required</string>
+    <string name="consent_cancel">Cancel</string>
+    <string name="consent_confirm">I am authorised — continue</string>
+
+    <!-- Scanner -->
+    <string name="port_scan_preset">Port preset</string>
+    <string name="start_port_scan">Start port scan</string>
+    <string name="scan_denied">Scan denied</string>
+    <string name="empty_results">No results yet. Run a scan to get started.</string>
+
+    <!-- Security Lab -->
+    <string name="lab_title">WPA Security Lab (offline)</string>
+    <string name="lab_intro">Learn why weak WPA/WPA2 passphrases can be guessed offline, and why WPA3-SAE fixes it. This lab works only on a handshake you already own or a synthetic one generated on this device. SentinelNet cannot capture handshakes from nearby networks.</string>
+    <string name="lab_synthetic">Generate a synthetic lesson</string>
+    <string name="lab_import">Import my handshake file</string>
+    <string name="lab_wordlist">Load a wordlist (my own file)</string>
+    <string name="lab_run">Run offline exercise</string>
+    <string name="lab_passphrase_hint">Type YOUR OWN Wi-Fi passphrase to check its strength</string>
+    <string name="lab_disclaimer">Educational use on authorised networks only. No deauthentication, monitor mode or frame injection exists in this app.</string>
+
+    <!-- Settings -->
+    <string name="online_features">Opt-in online lookups (RDAP, CVE, threat intel)</string>
+    <string name="high_contrast">High contrast</string>
+    <string name="amoled">AMOLED black theme</string>
+    <string name="export_audit_log">Export audit log</string>
+    <string name="delete_all_data">Delete all local data</string>
+</resources>

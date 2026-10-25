@@ -1,0 +1,37 @@
+build:
+  # Ratchet baseline: tighten towards 0 in Phase 8 (see docs/DEVELOPER_GUIDE.md).
+  maxIssues: 1000
+  excludeCorrectable: false
+config:
+  validation: true
+processors:
+  active: true
+console-reports:
+  active: true
+complexity:
+  LongMethod:
+    threshold: 90
+  LongParameterList:
+    functionThreshold: 8
+  TooManyFunctions:
+    thresholdInFiles: 40
+    thresholdInClasses: 40
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable', 'Test']
+style:
+  MagicNumber:
+    active: false
+  MaxLineLength:
+    active: false
+  WildcardImport:
+    active: true
+  UnusedPrivateMember:
+    active: false
+  ReturnCount:
+    active: false
+  ThrowsCount:
+    active: false
+exceptions:
+  SwallowedException:
+    active: false

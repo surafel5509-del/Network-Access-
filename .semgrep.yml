@@ -1,0 +1,25 @@
+rules:
+  - id: sentinelnet-no-implicit-invasive-scan
+    languages: [kotlin]
+    message: >-
+      Invasive network operations must go through ConsentGate.guard(). Never call a
+      scanner / capture / firewall entry point directly from UI or engine code.
+    severity: ERROR
+    patterns:
+      - pattern-either:
+          - pattern: $ENGINE.startScan(...)
+          - pattern: $ENGINE.startCapture(...)
+      - pattern-not-inside: |
+          ConsentGate.guard(...)
+    paths:
+      include: ["app/", "engine/"]
+
+  - id: sentinelnet-no-device-identifiers
+    languages: [kotlin]
+    message: "IMSI / IMEI / serial collection is explicitly forbidden by the privacy policy."
+    severity: ERROR
+    pattern-either:
+      - pattern: TelephonyManager.getImei(...)
+      - pattern: TelephonyManager.getSubscriberId(...)
+      - pattern: Build.getSerial()
+      - pattern: Build.SERIAL

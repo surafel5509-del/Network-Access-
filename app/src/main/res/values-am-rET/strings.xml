@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ሴንቲኔልኔት</string>
+    <string name="app_tagline">የኪስዎ የደህንነት ስራዎች ማዕከል</string>
+
+    <string name="legal_notice_title">ለተፈቀደ አጠቃቀም ብቻ</string>
+    <string name="legal_notice_body">ሴንቲኔልኔት የመከላከያ አውታረመረብ ትንተናና የደህንነት ኦዲት መሳሪያ ነው። የባለቤቱን ፈቃድ ሳያገኙ አውታረመረቦችን ወይም መሳሪያዎችን መቃኘት በህግ የተከለከለ ሊሆን ይችላል። የአውታረመረቡ ባለቤት መሆን ወይም የጽሁፍ ፈቃድ ሊኖርዎት ይገባል። ንቁ ባህሪያት በነባሪነት በደህንነት ሁነታ ተዘግተዋል፣ አዲስ የስምምነት ማረጋገጫ ይፈልጋሉ፣ እና እያንዳንዱ ተግባር በአካባቢው የኦዲት መዝገብ ውስጥ ይመዘገባል።</string>
+    <string name="consent_authorised_only">ይህን አውታረመረብ/መሳሪያ የማለት ወይም የመፈተሽ የጽሁፍ ፈቃድ እንዳለኝ አረጋግጣለሁ።</string>
+    <string name="consent_understand_law">ያልተፈቀደ ቅኝት በህግ የተከለከለ መሆኑን ተረድቻለሁና ሙሉ ሃላፊነቱን እወስዳለሁ።</string>
+    <string name="consent_audit_log">እያንዳንዱ ተግባር በአካባቢውና ወደ ውጭ ሊላክ በሚችል የኦዲት መዝገብ እንደሚመዘገብ ተረድቻለሁ።</string>
+    <string name="consent_no_exploitation">ይህ መተግበሪያ ምንም አይነት ጥቃት እንደማያደርግና አደጋዎችን ብቻ እንደሚዘግብ ተረድቻለሁ።</string>
+    <string name="accept_continue">ህጎቹን ተቀብዬ ቀጥል</string>
+    <string name="safe_mode">የደህንነት ሁነታ</string>
+    <string name="safe_mode_desc">ሁሉንም ወራሪ ባህሪያትን (የፖርት ቅኝት፣ የፓኬት ቀረጻ፣ MITM ፕሮክሲ፣ ፋየርዎል፣ የደህንነት ላብ) ያጠፋል። ይመከራል።</string>
+
+    <string name="nav_dashboard">ዳሽቦርድ</string>
+    <string name="nav_wifi">ዋይፋይ</string>
+    <string name="nav_scanner">ስካነር</string>
+    <string name="nav_audit">ኦዲት</string>
+    <string name="nav_lab">የደህንነት ላብ</string>
+    <string name="nav_reports">ሪፖርቶች</string>
+    <string name="nav_settings">ቅንብሮች</string>
+
+    <string name="security_score">የደህንነት ውጤት</string>
+    <string name="quick_actions">ፈጣን ተግባራት</string>
+    <string name="recent_alerts">የቅርብ ጊዜ ማንቂያዎች</string>
+    <string name="active_engines">ሞጁሎች</string>
+    <string name="run_scan">የዋይፋይ ቅኝት አሂድ</string>
+    <string name="run_audit">የደህንነት ኦዲት አሂድ</string>
+    <string name="export_report">ሪፖርት ላክ</string>
+
+    <string name="consent_title">ይህን ተግባር አረጋግጥ</string>
+    <string name="consent_target">ዒላማ</string>
+    <string name="consent_scope">የፈቃድ ወሰን</string>
+    <string name="consent_public_warning">ይህ ይፋዊ ዒላማ ነው። የጽሁፍ ማብራሪያ ማስገባት አለብዎት።</string>
+    <string name="consent_biometric">የባዮሜትሪክ ማረጋገጫ ያስፈልጋል</string>
+    <string name="consent_cancel">ሰርዝ</string>
+    <string name="consent_confirm">ተፈቅዶልኛል — ቀጥል</string>
+
+    <string name="port_scan_preset">የፖርት ቅድመ-ቅንብር</string>
+    <string name="start_port_scan">የፖርት ቅኝት ጀምር</string>
+    <string name="scan_denied">ቅኝቱ ተከልክሏል</string>
+    <string name="empty_results">ገና ምንም ውጤት የለም። ለመጀመር ቅኝት ያሂዱ።</string>
+
+    <string name="lab_title">የWPA ደህንነት ላብ (ከመስመር ውጭ)</string>
+    <string name="lab_intro">ደካማ የWPA/WPA2 የይለፍ ቃላት ከመስመር ውጭ እንዴት እንደሚገመቱና WPA3-SAE እንዴት እንደሚያስተካክለው ይማሩ። ይህ ላብ የሚሰራው ቀድሞ ባለዎት የእጅ መጨባበጥ መረጃ ወይም በዚህ መሳሪያ በሚፈጠር ሰው ሰራሽ መረጃ ላይ ብቻ ነው። ሴንቲኔልኔት በአቅራቢያ ካሉ አውታረመረቦች መረጃ መቅረጽ አይችልም።</string>
+    <string name="lab_synthetic">ሰው ሰራሽ ትምህርት ፍጠር</string>
+    <string name="lab_import">የእኔን የእጅ መጨባበጥ ፋይል አስገባ</string>
+    <string name="lab_wordlist">የቃላት ዝርዝር ጫን (የራሴ ፋይል)</string>
+    <string name="lab_run">ከመስመር ውጭ ልምምድ አሂድ</string>
+    <string name="lab_passphrase_hint">ጥንካሬውን ለማረጋገጥ የራስዎን የዋይፋይ ይለፍ ቃል ያስገቡ</string>
+    <string name="lab_disclaimer">ለተፈቀዱ አውታረመረቦች ትምህርታዊ አጠቃቀም ብቻ። በዚህ መተግበሪያ ውስጥ ዲኦት፣ የሞኒተር ሁነታ ወይም የፍሬም መርፌ የለም።</string>
+
+    <string name="online_features">የመስመር ላይ ፍለጋዎች (RDAP, CVE, threat intel)</string>
+    <string name="high_contrast">ከፍተኛ ንፅፅር</string>
+    <string name="amoled">AMOLED ጥቁር ገጽታ</string>
+    <string name="export_audit_log">የኦዲት መዝገብ ላክ</string>
+    <string name="delete_all_data">ሁሉንም የአካባቢ መረጃ ሰርዝ</string>
+</resources>

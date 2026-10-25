@@ -1,0 +1,9 @@
+id,severity,category,title,remediation,reference
+port.192.168.1.20.23,CRITICAL,NETWORK,Telnet (23) open on 192.168.1.20,Unauthenticated cleartext shell. Disable immediately.,
+port.192.168.1.20.445,CRITICAL,NETWORK,SMB (445) open on 192.168.1.20,SMB on a network perimeter is a prime ransomware vector.,
+wifi.open.02:11:22:33:44:55,CRITICAL,WIFI,Open network: Cafe Free WiFi,Use WPA3-SAE (or WPA2-AES at minimum). Never use an open network for sensitive traffic.,
+wifi.wep.00:1B:44:66:77:88,CRITICAL,WIFI,WEP is broken: Legacy-WEP,Replace the AP or switch to WPA2-AES/WPA3 immediately. WEP cannot be made safe.,
+wifi.random_bssid.02:11:22:33:44:55,MEDIUM,WIFI,Open network with a randomized BSSID,Treat as untrusted. Check for rogue DHCP/DNS before connecting.,
+wifi.wps_flag.C0:25:E9:11:22:33,MEDIUM,WIFI,WPS advertised: SentinelLab-IoT,Turn off WPS in the AP configuration.,
+port.192.168.1.1.443,INFO,NETWORK,HTTPS (443) open on 192.168.1.1,"Audit TLS version, cipher suites and certificate validity.",
+port.192.168.1.1.80,INFO,NETWORK,HTTP (80) open on 192.168.1.1,Prefer HTTPS with HSTS; check for default admin pages.,
