@@ -47,7 +47,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.biometric)
-    implementation(libs.androidx.security.crypto)
+    api(libs.androidx.security.crypto)
     implementation(libs.androidx.sqlite)
     implementation(libs.sqlcipher.android)
     implementation(libs.androidx.work.runtime)
