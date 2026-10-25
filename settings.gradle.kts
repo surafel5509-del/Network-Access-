@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         // Rust JNI artifacts are published locally by `scripts/build-native.sh` (no remote needed).
-        maven { url = uri(rootProject.layout.projectDirectory.dir("native/out/maven")) }
+        maven { url = uri("$rootDir/native/out/maven") }
     }
 }
 
