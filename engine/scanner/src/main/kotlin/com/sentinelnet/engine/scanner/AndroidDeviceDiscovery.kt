@@ -14,7 +14,7 @@ import com.sentinelnet.engine.api.DeviceDiscoveryEngine
 import com.sentinelnet.engine.api.EngineStatus
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.channelFlow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch

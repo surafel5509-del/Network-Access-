@@ -11,7 +11,7 @@ import com.sentinelnet.engine.api.EngineStatus
 import com.sentinelnet.engine.api.PortScanEngine
 import com.sentinelnet.engine.api.ScanConfig
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.channelFlow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
