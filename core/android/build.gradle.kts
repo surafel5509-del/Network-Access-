@@ -32,6 +32,7 @@ android {
 dependencies {
     implementation(project(":core:pure"))
     implementation(libs.androidx.core.ktx)
+    implementation(libs.okhttp)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
@@ -60,3 +61,7 @@ dependencies {
 }
 
 tasks.withType<Test> { useJUnitPlatform() }
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}

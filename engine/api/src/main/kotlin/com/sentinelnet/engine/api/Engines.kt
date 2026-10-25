@@ -92,7 +92,7 @@ interface SecurityAuditEngine : SentinelEngine {
 }
 
 interface FirewallEngine : SentinelEngine {
-    fun status(): EngineStatus
+    override fun status(): EngineStatus
     fun blockedPackages(): Set<String>
 }
 
