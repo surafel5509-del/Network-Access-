@@ -61,14 +61,6 @@ jobs:
         run: |
           set -o pipefail
           gradle :app:assembleDebug --no-daemon --console=plain 2>&1 | tee build-diagnostics.log
-      - name: Publish build diagnostics
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require("fs");
-            const text = fs.existsSync("build-diagnostics.log") ? fs.readFileSync("build-diagnostics.log", "utf8").slice(-60000) : "Build failed before compilation.";
-            await github.rest.checks.create({ ...context.repo, name: "Build diagnostics", head_sha: context.sha, status: "completed", conclusion: "failure", output: {title: "Android build output", summary: "```text\n" + text + "\n```"} });
       - uses: actions/upload-artifact@v4
         with:
           name: sentinelnet-debug
@@ -80,7 +72,17 @@ jobs:
       - name: Unit tests
         run: gradle :app:testDebugUnitTest :engine:wifi:testDebugUnitTest :engine:scanner:testDebugUnitTest --no-daemon
       - name: Android lint
-        run: gradle :app:lintDebug --no-daemon
+        run: |
+          set -o pipefail
+          gradle :app:lintDebug --no-daemon --console=plain 2>&1 | tee build-diagnostics.log
+      - name: Publish build diagnostics
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const text = fs.existsSync("build-diagnostics.log") ? fs.readFileSync("build-diagnostics.log", "utf8").slice(-60000) : "Build failed before compilation.";
+            await github.rest.checks.create({ ...context.repo, name: "Build diagnostics", head_sha: context.sha, status: "completed", conclusion: "failure", output: {title: "Android build output", summary: "```text\n" + text + "\n```"} });
 
   native:
     name: Rust packet parser tests + clippy
